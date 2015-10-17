@@ -3,7 +3,7 @@ function validarLogin()
 	//alert("Login");
 	var correo=$("#correo").val();
 	var clave=$("#clave").val();
-	alert(correo+clave);
+	//alert(correo+clave);
 
 	var funcionAjax=$.ajax({
 		url:"php/validarUsuario.php",
@@ -15,9 +15,10 @@ function validarLogin()
 	});
 
 	funcionAjax.done(function(retorno){
-		alert(retorno);
-		if (retorno=="ok") {
-			//$("#Contador").html(retorno);
+		//alert(retorno);
+		if (retorno!="error") {
+			alert(retorno);
+			$("#Contador").html(retorno);
 			Mostrar('MostarLogin');	
 		}
 		else{

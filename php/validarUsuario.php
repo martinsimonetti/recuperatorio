@@ -6,18 +6,18 @@
 	$clave=$_POST['clave'];
 
 	$unUsuario = usuario::ValidarUsuario($correo,$clave);
-	$tipo=$unUsuario->tipo;
+		
 	//echo var_dump($unUsuario);
 
-	if(isset($unUsuario))
+	if($unUsuario)
 	{
-		setcookie("correo",$correo,  time()+36000 , '/');
-		setcookie("pass",$clave,  time()-36000 , '/');
+		setcookie("correo",$unUsuario->correo,  time()+48600, "/");
+		setcookie("clave",$unUsuario->clave,  time()+48600, "/");
 		session_start();
-		$_SESSION['correo'] = $correo;
-		$_SESSION['pass'] = $clave;
-		$_SESSION['tipo'] = $tipo;
-		echo "ok";
+		$_SESSION['correo'] = $unUsuario->correo;
+		$_SESSION['pass'] = $unUsuario->clave;
+		$_SESSION['tipo'] = $unUsuario->tipo;
+		echo "Usuario: ".$_COOKIE['correo']."<br>Clave: ".$_COOKIE['clave'];
 	}
 	else
 	{

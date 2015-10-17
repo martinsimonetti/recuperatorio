@@ -14,7 +14,7 @@ if(isset($_SESSION['correo'])){  ?>
 		<tr>
 			<?php
 
-if(isset($_SESSION['tipo']=="admin")){ echo "<th>Borrar</th>";} ?><th>Nombre</th><th>Correo</th><th>Clave</th>
+if($_SESSION['tipo']=="admin"){ echo "<th>Borrar</th>";} ?><th>Nombre</th><th>Correo</th><th>Clave</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -22,12 +22,15 @@ if(isset($_SESSION['tipo']=="admin")){ echo "<th>Borrar</th>";} ?><th>Nombre</th
 		<?php 
 //echo var_dump($arrayDeUsuario);
 foreach ($arrayDeUsuario as $usuario) {
-	if(isset($_SESSION['tipo']=="admin")){ echo "<td><a onclick='BorrarUsuario($usuario->id)' class='btn btn-danger'>   <span class='glyphicon glyphicon-trash'>&nbsp;</span>  Borrar</a></td>" }
-	echo "<tr>
-			<td>$usuario->nombre</td>
+	echo "<tr>";
+	if($_SESSION['tipo']=="admin")
+	{
+		echo "<td><a onclick='BorrarUsuario($usuario->id)' class='btn btn-danger'><span class='glyphicon glyphicon-trash'>&nbsp;</span>  Borrar</a></td>";
+	}
+	echo "	<td>$usuario->nombre</td>
 			<td>$usuario->correo</td>
 			<td>$usuario->clave</td>
-		</tr>   ";
+		</tr>";
 }
 		 ?>
 	</tbody>

@@ -15,13 +15,7 @@ switch ($queHago) {
 		break;
 	case 'MostarLogin':
 			include("partes/formLogin.php");
-		break;
-	case 'MostrarFormAlta':
-			include("partes/formVotacion.php");
-		break;
-	case 'VerEnMapa':
-		include("partes/formMapa.php");
-		break;
+		break;	
 	case 'BorrarUsuario':
 			$usuario = new usuario();
 			$usuario->id=$_POST['id'];

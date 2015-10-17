@@ -18,10 +18,10 @@ if(!isset($_SESSION['correo'])){
                                   echo $_COOKIE['correo'];
                                 } ?>">
                 <label for="clave" class="sr-only">clave</label>
-                <input type="text" id="clave" class="form-control" placeholder="clave" required="" autofocus=""
-                value="<?php if (isset($_COOKIE['pass'])) {
-                                  echo $_COOKIE['pass'];
-                                } ?>">   
+                <input type="password" id="clave" class="form-control" placeholder="clave" required="" autofocus=""
+                value="<?php if (isset($_COOKIE['clave'])) {
+                                  echo $_COOKIE['clave'];
+                                } ?>">  
         <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
       </form>
     </div> <!-- /container -->

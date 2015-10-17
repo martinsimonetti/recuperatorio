@@ -20,7 +20,7 @@ function BorrarUsuario(idParametro)
 function EditarUsuario()
 {
 	Mostrar('alta');
-	alert("correo+clave");
+	//alert("correo+clave");
 	//Mostrar('alta');
 	var funcionAjax=$.ajax({
 		url:"nexo.php",
@@ -31,15 +31,18 @@ function EditarUsuario()
 	});
 
 	funcionAjax.done(function(retorno){		
-		alert(retorno);
+		//alert(retorno);
 		var usuario =JSON.parse(retorno);		
 		$("#id").val(usuario.id);
 		//alert(usuario.id+usuario.nombre+usuario.correo+usuario.clave+usuario.tipo);
 		$("#nombre").val(usuario.nombre);
 		//alert(usuario.provincia);
 		$("#correo").val(usuario.correo);
+		$("#correo").attr("readonly",true);
 		$("#clave").val(usuario.clave);
+		$("#clave").attr("readonly",true);
 		$("#tipo").val(usuario.tipo);
+		$("#tipo").attr("disabled",true);
 	});
 	funcionAjax.fail(function(retorno){
 		alert(retorno);
