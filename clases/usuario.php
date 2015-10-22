@@ -6,6 +6,7 @@ class usuario
   	public $correo;
   	public $clave;
   	public $tipo;
+  	public $foto;
 
  public static function ValidarUsuario($correo, $clave) 
 	{
@@ -32,7 +33,7 @@ public function GuardarUsuario()
 	 public function InsertarUsuario()
 	 {
 				$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-				$consulta =$objetoAccesoDato->RetornarConsulta("INSERT INTO usuarios(nombre,clave,correo,tipo) VALUES('$this->nombre','$this->clave','$this->correo','$this->tipo')");
+				$consulta =$objetoAccesoDato->RetornarConsulta("INSERT INTO usuarios(nombre,clave,correo,tipo,foto) VALUES('$this->nombre','$this->clave','$this->correo','$this->tipo','$this->foto')");
 				//$consulta =$objetoAccesoDato->RetornarConsulta("CALL Insertarusuario('$this->nombre','$this->clave','$this->correo','$this->sexo')");
 				$consulta->execute();
 				return $objetoAccesoDato->RetornarUltimoIdInsertado();

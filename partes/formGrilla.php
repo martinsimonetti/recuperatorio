@@ -14,7 +14,7 @@ if(isset($_SESSION['correo'])){  ?>
 		<tr>
 			<?php
 
-if($_SESSION['tipo']=="admin"){ echo "<th>Borrar</th>";} ?><th>Nombre</th><th>Correo</th><th>Clave</th>
+if($_SESSION['tipo']=="admin"){ echo "<th>Borrar</th>";} ?><th>Foto</th><th>Nombre</th><th>Correo</th><th>Clave</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,7 +27,8 @@ foreach ($arrayDeUsuario as $usuario) {
 	{
 		echo "<td><a onclick='BorrarUsuario($usuario->id)' class='btn btn-danger'><span class='glyphicon glyphicon-trash'>&nbsp;</span>  Borrar</a></td>";
 	}
-	echo "	<td>$usuario->nombre</td>
+	echo "	<td><img  class='fotoGrilla' src='fotos/".$usuario->foto."'/></td>
+			<td>$usuario->nombre</td>
 			<td>$usuario->correo</td>
 			<td>$usuario->clave</td>
 		</tr>";

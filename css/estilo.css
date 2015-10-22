@@ -122,6 +122,10 @@ select{
   color:#555;
 }
 
+.fotoGrilla {
+  width: 40px;
+  height: 40px;
+}
 
 .MiBotonUTN {
   display:block;

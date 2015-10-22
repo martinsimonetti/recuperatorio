@@ -17,7 +17,7 @@ function validarLogin()
 	funcionAjax.done(function(retorno){
 		//alert(retorno);
 		if (retorno!="error") {
-			alert(retorno);
+			//alert(retorno);
 			$("#Contador").html(retorno);
 			Mostrar('MostarLogin');	
 		}

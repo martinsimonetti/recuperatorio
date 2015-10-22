@@ -12,6 +12,12 @@ strong, sub, sup, tt, var, legend, fieldset {
 img, fieldset {
 	border: 0;
 }
+
+.fotoGrilla {
+  width: 40px;
+  height: 40px;
+}
+
 .MiBotonUTN {
  display: block;
   text-transform: capitalize;

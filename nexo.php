@@ -23,14 +23,16 @@ switch ($queHago) {
 			echo $cantidad;
 		break;
 	case 'GuardarUsuario':
-			$usuario = new usuario();
+			/*$usuario = new usuario();
 			$usuario->id=$_POST['id'];
 			$usuario->nombre=$_POST['nombre'];
 			$usuario->correo=$_POST['correo'];
 			$usuario->clave=$_POST['clave'];
 			$usuario->tipo=$_POST['tipo'];
-			$cantidad=$usuario->GuardarUsuario();
+			$cantidad=$usuario->GuardarUsuario();*/
+			include("partes/guardarUsuario.php");
 			echo $cantidad;
+			//echo var_dump($_POST);
 		break;
 	case 'Editarsuario':
 			session_start();

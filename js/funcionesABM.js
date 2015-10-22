@@ -38,11 +38,15 @@ function EditarUsuario()
 		$("#nombre").val(usuario.nombre);
 		//alert(usuario.provincia);
 		$("#correo").val(usuario.correo);
-		$("#correo").attr("readonly",true);
+		$("#correo").hide();
+		//$("#correo").attr("readonly",true);
 		$("#clave").val(usuario.clave);
-		$("#clave").attr("readonly",true);
+		$("#clave").hide();
+		//$("#clave").attr("readonly",true);
 		$("#tipo").val(usuario.tipo);
-		$("#tipo").attr("disabled",true);
+		$("#tipo").hide();
+		$("#divFoto").hide();
+
 	});
 	funcionAjax.fail(function(retorno){
 		alert(retorno);
@@ -50,27 +54,22 @@ function EditarUsuario()
 }
 
 function GuardarUsuario()
-{
-	var id=$("#id").val();
-	//alert(id);
-	var nombre=$("#nombre").val();
-	var correo=$("#correo").val();
-	var clave=$("#clave").val();
-	var tipo=$("#tipo").val();
+{	
+	var formData = new FormData(document.getElementById("FormIngreso"));
+        formData.append("queHacer", "GuardarUsuario");
 
-	var funcionAjax=$.ajax({
-		url:"nexo.php",
-		type:"POST",
-		data:{
-			queHacer:"GuardarUsuario",
-			nombre:nombre,
-			correo:correo,
-			clave:clave,
-			id:id,
-			tipo:tipo
-		}
+        //alert(formData);
+		var funcionAjax=$.ajax({
+		url: "nexo.php",
+        type: "post",
+        dataType: "html",
+        data: formData,
+        cache: false,
+        contentType: false,
+	    processData: false
 	});
 	funcionAjax.done(function(retorno){
+		//alert(retorno);
 		Mostrar("MostarLogin");	
 	});
 	funcionAjax.fail(function(retorno){	
